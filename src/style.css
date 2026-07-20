@@ -9,46 +9,51 @@
   --color-mint: #2dd4bf;
 }
 
-/* Keep overscroll the same color as the app */
+/* Match browser chrome / overscroll to app ink exactly */
+:root {
+  color-scheme: dark;
+  background-color: #020617;
+}
+
 html {
-  background-color: var(--color-ink);
+  background-color: #020617 !important;
   scroll-behavior: smooth;
+  /* Avoid rubber-band flash to a different layer color */
+  overscroll-behavior-y: none;
 }
 
 body {
   margin: 0;
-  min-height: 100%;
-  background-color: var(--color-ink);
+  min-height: 100dvh;
+  background-color: #020617 !important;
   color: #e2e8f0;
   font-family: var(--font-sans);
   -webkit-font-smoothing: antialiased;
+  overscroll-behavior-y: none;
 }
 
 #app {
-  min-height: 100%;
-  background-color: var(--color-ink);
+  min-height: 100dvh;
+  background-color: #020617;
 }
 
-/* Editorial display type */
 .font-display {
   font-family: var(--font-display);
   font-optical-sizing: auto;
 }
 
-/* Soft film grain — atmosphere, not decoration */
 .grain {
   pointer-events: none;
   position: fixed;
   inset: 0;
   z-index: 40;
-  opacity: 0.04;
-  mix-blend-mode: overlay;
+  opacity: 0.035;
+  mix-blend-mode: soft-light;
   background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");
   background-repeat: repeat;
   background-size: 180px 180px;
 }
 
-/* Section reveal */
 .reveal {
   opacity: 0;
   transform: translateY(14px);
@@ -72,6 +77,21 @@ body {
   transition-delay: 240ms;
 }
 
+/* Expandable case study body */
+.case-detail {
+  display: grid;
+  grid-template-rows: 0fr;
+  transition: grid-template-rows 0.4s cubic-bezier(0.22, 1, 0.36, 1);
+}
+
+.case-detail.is-open {
+  grid-template-rows: 1fr;
+}
+
+.case-detail > div {
+  overflow: hidden;
+}
+
 @media (prefers-reduced-motion: reduce) {
   html {
     scroll-behavior: auto;
@@ -80,6 +100,10 @@ body {
   .reveal {
     opacity: 1;
     transform: none;
+    transition: none;
+  }
+
+  .case-detail {
     transition: none;
   }
 

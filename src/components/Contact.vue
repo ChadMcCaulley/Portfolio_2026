@@ -10,7 +10,7 @@ const visible = useReveal(rootEl)
   <section
     id="contact"
     ref="rootEl"
-    class="reveal relative overflow-hidden border-t border-slate-900/80 px-4 py-28 sm:px-6 lg:px-8"
+    class="reveal relative overflow-hidden border-t border-slate-900/80 bg-[#020617] px-4 py-28 sm:px-6 lg:px-8"
     :class="{ 'is-visible': visible }"
   >
     <div
@@ -19,10 +19,7 @@ const visible = useReveal(rootEl)
     />
 
     <div class="relative mx-auto max-w-2xl text-center">
-      <p class="text-xs font-medium tracking-[0.2em] text-teal-400/90 uppercase">
-        Contact
-      </p>
-      <h2 class="font-display mt-3 text-3xl font-medium tracking-tight text-white sm:text-4xl md:text-5xl">
+      <h2 class="font-display text-3xl font-medium tracking-tight text-white sm:text-4xl md:text-5xl">
         Let's build something reliable
       </h2>
       <p class="mx-auto mt-5 max-w-lg text-slate-400">

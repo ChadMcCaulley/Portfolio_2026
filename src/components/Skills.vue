@@ -33,14 +33,11 @@ const skillGroups = [
   <section
     id="skills"
     ref="rootEl"
-    class="reveal border-t border-slate-900/80 px-4 py-24 sm:px-6 lg:px-8"
+    class="reveal border-t border-slate-900/80 bg-[#020617] px-4 py-24 sm:px-6 lg:px-8"
     :class="{ 'is-visible': visible }"
   >
     <div class="mx-auto max-w-6xl">
-      <p class="text-xs font-medium tracking-[0.2em] text-teal-400/90 uppercase">
-        Toolkit
-      </p>
-      <h2 class="font-display mt-3 text-3xl font-medium tracking-tight text-white sm:text-4xl">
+      <h2 class="font-display text-3xl font-medium tracking-tight text-white sm:text-4xl">
         Skills
       </h2>
       <div class="mt-12 grid gap-10 sm:grid-cols-2 lg:grid-cols-3">

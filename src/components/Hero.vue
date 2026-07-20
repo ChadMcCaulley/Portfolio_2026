@@ -1,5 +1,5 @@
 <template>
-  <section class="relative flex min-h-[88vh] items-center overflow-hidden px-4 pb-20 pt-28 sm:px-6 lg:px-8">
+  <section class="relative flex min-h-[88vh] items-center overflow-hidden bg-[#020617] px-4 pb-20 pt-28 sm:px-6 lg:px-8">
     <!-- Soft product glow -->
     <div
       class="pointer-events-none absolute inset-0"
@@ -12,7 +12,7 @@
         class="absolute inset-0 bg-[radial-gradient(ellipse_50%_40%_at_80%_60%,rgba(45,212,191,0.06),transparent_50%)]"
       />
       <div
-        class="absolute inset-x-0 bottom-0 h-32 bg-gradient-to-t from-slate-950 to-transparent"
+        class="absolute inset-x-0 bottom-0 h-32 bg-gradient-to-t from-[#020617] to-transparent"
       />
     </div>
 

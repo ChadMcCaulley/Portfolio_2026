@@ -9,7 +9,7 @@ import Contact from './components/Contact.vue'
 </script>
 
 <template>
-  <div class="relative min-h-screen bg-slate-950 text-slate-200 antialiased">
+  <div class="relative min-h-dvh bg-[#020617] text-slate-200 antialiased">
     <div class="grain" aria-hidden="true" />
     <Navbar />
     <main>
@@ -21,7 +21,7 @@ import Contact from './components/Contact.vue'
       <Contact />
     </main>
 
-    <footer class="border-t border-slate-800/80 py-8 text-center text-sm text-slate-500">
+    <footer class="border-t border-slate-800/80 bg-[#020617] py-8 text-center text-sm text-slate-500">
       © {{ new Date().getFullYear() }} Chad McCaulley
     </footer>
   </div>
