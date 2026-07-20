@@ -9,7 +9,8 @@ import Contact from './components/Contact.vue'
 </script>
 
 <template>
-  <div class="min-h-screen bg-slate-950 text-slate-100 antialiased">
+  <div class="relative min-h-screen bg-slate-950 text-slate-200 antialiased">
+    <div class="grain" aria-hidden="true" />
     <Navbar />
     <main>
       <Hero />
@@ -20,8 +21,8 @@ import Contact from './components/Contact.vue'
       <Contact />
     </main>
 
-    <footer class="border-t border-slate-800 py-8 text-center text-slate-500 text-sm">
-      © {{ new Date().getFullYear() }} Chad McCaulley. Built with Vue 3 + Tailwind CSS.
+    <footer class="border-t border-slate-800/80 py-8 text-center text-sm text-slate-500">
+      © {{ new Date().getFullYear() }} Chad McCaulley
     </footer>
   </div>
 </template>

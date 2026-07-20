@@ -1,13 +1,7 @@
 import { defineConfig } from 'vite'
-import tailwindcss from '@tailwindcss/vite'
-import { templateCompilerOptions } from '@tresjs/core'
 import vue from '@vitejs/plugin-vue'
+import tailwindcss from '@tailwindcss/vite'
 
 export default defineConfig({
-  plugins: [
-    vue({
-      ...templateCompilerOptions,  
-    }),
-    tailwindcss()
-  ],
+  plugins: [vue(), tailwindcss()],
 })

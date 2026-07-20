@@ -1,59 +1,64 @@
-<script setup lang="ts">
-import HeroBackground from './HeroBackground.vue'
-</script>
-
 <template>
-  <section class="relative min-h-[90vh] flex items-center justify-center px-4 sm:px-6 lg:px-8 pt-20 overflow-hidden">
-    <HeroBackground />
+  <section class="relative flex min-h-[88vh] items-center overflow-hidden px-4 pb-20 pt-28 sm:px-6 lg:px-8">
+    <!-- Soft product glow -->
+    <div
+      class="pointer-events-none absolute inset-0"
+      aria-hidden="true"
+    >
+      <div
+        class="absolute inset-0 bg-[radial-gradient(ellipse_90%_60%_at_50%_-10%,rgba(99,102,241,0.22),transparent_55%)]"
+      />
+      <div
+        class="absolute inset-0 bg-[radial-gradient(ellipse_50%_40%_at_80%_60%,rgba(45,212,191,0.06),transparent_50%)]"
+      />
+      <div
+        class="absolute inset-x-0 bottom-0 h-32 bg-gradient-to-t from-slate-950 to-transparent"
+      />
+    </div>
 
-    <div class="relative z-10 max-w-4xl mx-auto text-center">
-      <p class="mb-4 inline-flex items-center gap-2 rounded-full border border-amber-500/30 bg-amber-500/10 px-3 py-1 text-xs font-medium tracking-wide text-amber-200/90 uppercase">
-        <span class="h-1.5 w-1.5 rounded-full bg-amber-400 animate-pulse" aria-hidden="true" />
-        Inbox full of CRs? Swat them. Or hire me.
+    <div class="relative z-10 mx-auto max-w-3xl text-center">
+      <p
+        class="inline-flex items-center gap-2 rounded-full border border-slate-800 bg-slate-950/60 px-3 py-1 text-xs font-medium tracking-wide text-slate-400 backdrop-blur-sm"
+      >
+        <span class="relative flex h-1.5 w-1.5" aria-hidden="true">
+          <span class="absolute inline-flex h-full w-full animate-ping rounded-full bg-teal-400/50 opacity-60" />
+          <span class="relative inline-flex h-1.5 w-1.5 rounded-full bg-teal-400" />
+        </span>
+        Phoenix · Remote · Open to senior roles
       </p>
 
-      <h1 class="text-4xl sm:text-5xl md:text-6xl font-bold tracking-tight text-white">
+      <h1
+        class="font-display mt-8 text-5xl font-medium tracking-tight text-white sm:text-6xl md:text-7xl"
+      >
         Chad McCaulley
       </h1>
-      <p class="mt-4 text-xl sm:text-2xl font-medium text-indigo-400">
+
+      <p class="mt-5 text-lg font-medium text-indigo-300 sm:text-xl">
         Senior Full-Stack Developer
       </p>
-      <p class="mt-2 text-slate-400 tracking-wide">
-        Vue.js • ASP.NET Core • Azure • AI
+      <p class="mt-2 text-sm tracking-wide text-slate-500">
+        Vue.js · ASP.NET Core · Azure · AI
       </p>
-      <p class="mt-8 text-lg sm:text-xl text-slate-300 max-w-2xl mx-auto leading-relaxed">
-        Change requests and review churn shouldn't swarm your week.
-        I take ownership of the messy platform work so your team can ship without the buzz.
+
+      <p
+        class="font-display mx-auto mt-10 max-w-2xl text-xl leading-relaxed text-slate-300 sm:text-2xl sm:leading-relaxed"
+      >
+        I take ownership of the platform work enterprise teams can’t leave half-done —
+        multi-tenant architecture, production AI, and the systems people rely on every day.
       </p>
-      <p class="mt-3 text-sm text-slate-500">
-        Move your cursor through the CRs — they scatter like pests. They always come back… unless you bring in help.
-      </p>
-      <div class="mt-10 flex flex-wrap justify-center gap-4">
-        <a
-          href="#contact"
-          class="px-6 py-3 bg-indigo-600 hover:bg-indigo-500 text-white font-medium rounded-lg transition"
-        >
-          Hire me to clear the swarm
-        </a>
+
+      <div class="mt-12 flex flex-wrap items-center justify-center gap-3">
         <a
           href="#case-studies"
-          class="px-6 py-3 border border-slate-700 hover:border-indigo-500 text-slate-200 rounded-lg transition"
+          class="rounded-lg bg-indigo-600 px-6 py-3 text-sm font-semibold text-white shadow-[0_0_0_1px_rgba(99,102,241,0.4),0_8px_24px_rgba(79,70,229,0.25)] transition hover:bg-indigo-500"
         >
-          View Case Studies
+          View case studies
         </a>
         <a
-          href="#"
-          class="px-6 py-3 border border-slate-700 hover:border-indigo-500 text-slate-200 rounded-lg transition"
+          href="#contact"
+          class="rounded-lg border border-slate-700 bg-slate-950/40 px-6 py-3 text-sm font-medium text-slate-200 transition hover:border-teal-500/40 hover:text-white"
         >
-          Resume
-        </a>
-        <a
-          href="https://github.com/ChadMcCaulley"
-          target="_blank"
-          rel="noopener"
-          class="px-6 py-3 border border-slate-700 hover:border-indigo-500 text-slate-200 rounded-lg transition"
-        >
-          GitHub
+          Get in touch
         </a>
       </div>
     </div>
