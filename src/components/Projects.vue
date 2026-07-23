@@ -26,7 +26,7 @@ const projects = computed(() => [
   {
     title: t('projects.items.streaming.title'),
     description: t('projects.items.streaming.description'),
-    tech: ['React', 'TypeScript', 'Node.js', 'MongoDB'],
+    tech: ['React', 'TypeScript', 'Django REST', 'Vite', 'Token auth'],
     preview: 'streaming' as const,
   },
   {

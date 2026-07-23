@@ -102,9 +102,9 @@ export default {
           'Browser-only Content-Studio mit Multi-Mode-Generierung (Blog, LinkedIn, X-Threads, Product Copy, E-Mail, Outlines), Streaming-Chat, Persona-Templates und steckbaren OpenAI-kompatiblen Providern. Standardmäßig On-Device-Browser-KI (WebLLM) ohne API-Key; Upgrade auf kostenloses Groq, Ollama oder beliebige Custom-Endpoints. Inklusive Export, Spracheingabe, Attachments und Rate-Limit-Recovery.',
       },
       streaming: {
-        title: 'Modernisierte Streaming-Plattform',
+        title: 'Signal — Streaming-Plattform',
         description:
-          'Full-Stack-Netflix-ähnliche Anwendung neu gebaut mit TypeScript, klarerer Architektur, Authentifizierung und Performance-Fokus von Browse-UI bis API-Ownership.',
+          'Kino-Streaming-Demo: React- und TypeScript-UI mit Django-REST-API. Token-Auth, Mehrprofil-Konten, Katalog (Home/Filme/Serien/Suche), Meine Liste, Weiterschauen, eigener Videoplayer sowie Hell-/Dunkel-Theming — Full-Stack von der Browse-Shell bis zu profilbezogenen List-APIs.',
       },
       social: {
         title: 'Echtzeit-Social-Anwendung',

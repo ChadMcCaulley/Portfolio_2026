@@ -102,9 +102,9 @@ export default {
           'Estudio de contenido solo en el navegador con generación multimodo (blog, LinkedIn, hilos de X, copy de producto, email, esquemas), chat en streaming, plantillas de persona y proveedores compatibles con OpenAI. Por defecto usa IA en el navegador (WebLLM) para probar sin API key; luego se puede subir a Groq gratis, Ollama o cualquier endpoint personalizado. Incluye exportación, entrada de voz, adjuntos y recuperación ante rate limits.',
       },
       streaming: {
-        title: 'Plataforma de streaming modernizada',
+        title: 'Signal — Plataforma de streaming',
         description:
-          'Aplicación full-stack al estilo Netflix reconstruida con TypeScript, arquitectura más clara, autenticación y foco en rendimiento desde la UI de navegación hasta la API.',
+          'Demo de streaming al estilo cine: UI en React + TypeScript con API Django REST. Auth por token, cuentas multiperfil, catálogo (inicio/películas/series/búsqueda), Mi lista, continuar viendo, reproductor propio y temas claro/oscuro — full-stack desde el shell de navegación hasta APIs de listas por perfil.',
       },
       social: {
         title: 'Aplicación social en tiempo real',

@@ -22,32 +22,48 @@ const { t } = useI18n()
       <div class="ml-2 h-4 flex-1 rounded-sm bg-slate-800/80" />
     </div>
 
-    <!-- Streaming platform -->
+    <!-- Signal streaming platform -->
     <div v-if="variant === 'streaming'" class="grid grid-cols-[0.9fr_1.4fr] gap-2 p-3">
       <div class="space-y-1.5">
-        <div class="h-16 rounded-md bg-gradient-to-br from-indigo-600/40 to-slate-800 ring-1 ring-white/5" />
+        <div class="flex items-center gap-1.5">
+          <span class="flex h-4 w-4 items-center justify-center rounded-[3px] bg-[#C8F542]">
+            <span
+              class="ml-px h-0 w-0 border-y-[3px] border-l-[4px] border-y-transparent border-l-[#0A0A0B]"
+            />
+          </span>
+          <span class="h-1.5 w-10 rounded bg-slate-500" />
+        </div>
+        <div class="h-14 rounded-md bg-gradient-to-br from-zinc-800 to-zinc-950 ring-1 ring-white/5" />
         <div class="h-2 w-3/4 rounded bg-slate-700" />
         <div class="h-1.5 w-1/2 rounded bg-slate-800" />
-        <div class="mt-2 h-12 rounded-md bg-slate-800/80 ring-1 ring-white/5" />
+        <div class="mt-1.5 h-12 rounded-md bg-slate-800/80 ring-1 ring-white/5" />
         <div class="h-2 w-2/3 rounded bg-slate-700" />
       </div>
       <div class="space-y-2">
-        <div class="relative aspect-video overflow-hidden rounded-md bg-gradient-to-br from-slate-800 via-indigo-950/50 to-slate-900 ring-1 ring-indigo-500/20">
-          <div class="absolute inset-0 bg-[radial-gradient(circle_at_30%_40%,rgba(129,140,248,0.35),transparent_55%)]" />
+        <div
+          class="relative aspect-video overflow-hidden rounded-md bg-gradient-to-br from-zinc-900 via-zinc-950 to-black ring-1 ring-[#C8F542]/20"
+        >
+          <div
+            class="absolute inset-0 bg-[radial-gradient(circle_at_30%_40%,rgba(200,245,66,0.18),transparent_55%)]"
+          />
           <div class="absolute bottom-2 left-2 right-2">
             <div class="h-1 rounded-full bg-slate-700">
-              <div class="h-1 w-2/5 rounded-full bg-indigo-400" />
+              <div class="h-1 w-2/5 rounded-full bg-[#C8F542]" />
             </div>
           </div>
           <div class="absolute inset-0 flex items-center justify-center">
-            <div class="flex h-8 w-8 items-center justify-center rounded-full bg-white/15 backdrop-blur-sm">
-              <div class="ml-0.5 h-0 w-0 border-y-4 border-l-[7px] border-y-transparent border-l-white/90" />
+            <div
+              class="flex h-8 w-8 items-center justify-center rounded-full bg-[#C8F542]/20 backdrop-blur-sm ring-1 ring-[#C8F542]/30"
+            >
+              <div
+                class="ml-0.5 h-0 w-0 border-y-4 border-l-[7px] border-y-transparent border-l-[#C8F542]"
+              />
             </div>
           </div>
         </div>
         <div class="flex gap-2">
           <div class="h-8 flex-1 rounded bg-slate-800/90" />
-          <div class="h-8 w-8 rounded bg-indigo-600/50" />
+          <div class="h-8 w-8 rounded bg-[#C8F542]/40" />
         </div>
       </div>
     </div>
