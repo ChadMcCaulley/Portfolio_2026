@@ -1,5 +1,6 @@
 <script setup lang="ts">
 import { computed } from 'vue'
+import { useI18n } from 'vue-i18n'
 
 const props = defineProps<{
   index: string
@@ -18,17 +19,14 @@ const emit = defineEmits<{
   toggle: []
 }>()
 
+const { t } = useI18n()
 const panelId = computed(() => `case-detail-${props.index}`)
 </script>
 
 <template>
   <article
-    class="group relative flex h-full flex-col overflow-hidden rounded-2xl border bg-slate-900/60 transition duration-300"
-    :class="
-      open
-        ? 'border-indigo-400/50 shadow-[0_0_0_1px_rgba(129,140,248,0.15),0_24px_48px_-20px_rgba(99,102,241,0.45)]'
-        : 'border-slate-800/90 hover:border-indigo-500/40 hover:shadow-[0_20px_40px_-24px_rgba(99,102,241,0.35)]'
-    "
+    class="group surface-card relative flex h-full flex-col overflow-hidden rounded-2xl border transition duration-300"
+    :class="open ? 'card-open' : 'card-idle'"
   >
     <!-- Accent rail -->
     <div
@@ -45,37 +43,37 @@ const panelId = computed(() => `case-detail-${props.index}`)
       @click="emit('toggle')"
     >
       <div class="flex items-start justify-between gap-3">
-        <span class="font-display text-sm text-slate-500 tabular-nums">{{ index }}</span>
+        <span class="font-display text-sm text-subtle tabular-nums">{{ index }}</span>
         <span
-          class="rounded-full border border-teal-500/25 bg-teal-500/10 px-2.5 py-0.5 text-[11px] font-medium tracking-wide text-teal-300/90"
+          class="metric-pill rounded-full px-2.5 py-0.5 text-[11px] font-medium tracking-wide"
         >
           {{ metric }}
         </span>
       </div>
 
-      <h3 class="font-display mt-5 text-xl font-medium tracking-tight text-white sm:text-2xl">
+      <h3 class="font-display mt-5 text-xl font-medium tracking-tight text-heading sm:text-2xl">
         {{ title }}
       </h3>
-      <p class="mt-3 text-sm leading-relaxed text-slate-400">
+      <p class="mt-3 text-sm leading-relaxed text-muted">
         {{ summary }}
       </p>
 
       <div class="mt-5 flex flex-wrap gap-2">
         <span
-          v-for="t in tech"
-          :key="t"
-          class="rounded-md bg-slate-950/80 px-2.5 py-1 text-xs text-slate-400 ring-1 ring-slate-800"
+          v-for="techItem in tech"
+          :key="techItem"
+          class="surface-chip rounded-md px-2.5 py-1 text-xs"
         >
-          {{ t }}
+          {{ techItem }}
         </span>
       </div>
 
-      <div class="mt-6 flex items-center justify-between gap-3 border-t border-slate-800/80 pt-4">
-        <span class="text-xs text-slate-500">{{ focus }}</span>
+      <div class="mt-6 flex items-center justify-between gap-3 border-t border-subtle pt-4">
+        <span class="text-xs text-subtle">{{ focus }}</span>
         <span
-          class="inline-flex items-center gap-1.5 text-sm font-medium text-indigo-300 transition group-hover:text-indigo-200"
+          class="inline-flex items-center gap-1.5 text-sm font-medium text-accent transition"
         >
-          {{ open ? 'Close' : 'Read case study' }}
+          {{ open ? t('caseStudies.close') : t('caseStudies.read') }}
           <svg
             class="h-4 w-4 transition-transform duration-300"
             :class="open ? 'rotate-180' : ''"
@@ -97,20 +95,20 @@ const panelId = computed(() => `case-detail-${props.index}`)
       :aria-hidden="!open"
     >
       <div>
-        <div class="space-y-5 border-t border-slate-800/80 px-6 pb-6 pl-7 pt-5">
+        <div class="space-y-5 border-t border-subtle px-6 pb-6 pl-7 pt-5">
           <div>
-            <h4 class="text-xs font-semibold tracking-wide text-teal-400/90 uppercase">
-              Problem
+            <h4 class="text-xs font-semibold tracking-wide text-mint uppercase">
+              {{ t('caseStudies.problem') }}
             </h4>
-            <p class="mt-2 text-sm leading-relaxed text-slate-300">
+            <p class="mt-2 text-sm leading-relaxed text-body">
               {{ problem }}
             </p>
           </div>
           <div>
-            <h4 class="text-xs font-semibold tracking-wide text-teal-400/90 uppercase">
-              Approach
+            <h4 class="text-xs font-semibold tracking-wide text-mint uppercase">
+              {{ t('caseStudies.approach') }}
             </h4>
-            <ul class="mt-2 space-y-2 text-sm leading-relaxed text-slate-300">
+            <ul class="mt-2 space-y-2 text-sm leading-relaxed text-body">
               <li
                 v-for="step in approach"
                 :key="step"
@@ -121,11 +119,11 @@ const panelId = computed(() => `case-detail-${props.index}`)
               </li>
             </ul>
           </div>
-          <div class="rounded-xl border border-indigo-500/20 bg-indigo-500/5 p-4">
-            <h4 class="text-xs font-semibold tracking-wide text-indigo-300 uppercase">
-              Outcome
+          <div class="outcome-box rounded-xl p-4">
+            <h4 class="text-xs font-semibold tracking-wide text-accent uppercase">
+              {{ t('caseStudies.outcome') }}
             </h4>
-            <p class="mt-2 text-sm leading-relaxed text-slate-200">
+            <p class="mt-2 text-sm leading-relaxed text-body">
               {{ outcome }}
             </p>
           </div>

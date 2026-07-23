@@ -1,7 +1,9 @@
 <script setup lang="ts">
 import { useReveal } from '../composables/useReveal'
 import { ref } from 'vue'
+import { useI18n } from 'vue-i18n'
 
+const { t } = useI18n()
 const rootEl = ref<HTMLElement | null>(null)
 const visible = useReveal(rootEl)
 </script>
@@ -10,56 +12,55 @@ const visible = useReveal(rootEl)
   <section
     id="contact"
     ref="rootEl"
-    class="reveal relative overflow-hidden border-t border-slate-900/80 bg-[#020617] px-4 py-28 sm:px-6 lg:px-8"
+    class="reveal section-surface relative overflow-hidden border-t px-4 py-28 sm:px-6 lg:px-8"
     :class="{ 'is-visible': visible }"
   >
     <div
-      class="pointer-events-none absolute inset-0 bg-[radial-gradient(ellipse_70%_50%_at_50%_100%,rgba(99,102,241,0.12),transparent_60%)]"
+      class="contact-glow pointer-events-none absolute inset-0"
       aria-hidden="true"
     />
 
     <div class="relative mx-auto max-w-2xl text-center">
-      <h2 class="font-display text-3xl font-medium tracking-tight text-white sm:text-4xl md:text-5xl">
-        Let's build something reliable
+      <h2 class="font-display text-3xl font-medium tracking-tight text-heading sm:text-4xl md:text-5xl">
+        {{ t('contact.title') }}
       </h2>
-      <p class="mx-auto mt-5 max-w-lg text-slate-400">
-        Looking for a senior full-stack partner on multi-tenant platforms, production AI, or the
-        hard infrastructure work that makes product teams faster.
+      <p class="mx-auto mt-5 max-w-lg text-muted">
+        {{ t('contact.intro') }}
       </p>
 
       <div
-        class="mt-6 inline-flex items-center gap-2 rounded-full border border-teal-500/25 bg-teal-500/10 px-3 py-1 text-xs font-medium text-teal-300"
+        class="metric-pill mt-6 inline-flex items-center gap-2 rounded-full px-3 py-1 text-xs font-medium"
       >
         <span class="relative flex h-1.5 w-1.5" aria-hidden="true">
           <span class="absolute inline-flex h-full w-full animate-ping rounded-full bg-teal-400 opacity-50" />
-          <span class="relative inline-flex h-1.5 w-1.5 rounded-full bg-teal-400" />
+          <span class="relative inline-flex h-1.5 w-1.5 rounded-full bg-teal-500" />
         </span>
-        Open to remote & Phoenix-area roles
+        {{ t('contact.availability') }}
       </div>
 
       <a
         href="mailto:chadmccaulley95@gmail.com"
-        class="font-display mt-10 block text-2xl font-medium text-white transition hover:text-indigo-300 sm:text-3xl"
+        class="font-display mt-10 block text-2xl font-medium text-heading transition hover:text-accent sm:text-3xl"
       >
         chadmccaulley95@gmail.com
       </a>
 
-      <div class="mt-8 flex justify-center gap-8 text-sm text-slate-400">
+      <div class="mt-8 flex justify-center gap-8 text-sm text-muted">
         <a
           href="https://github.com/ChadMcCaulley"
           target="_blank"
           rel="noopener"
-          class="transition hover:text-teal-300"
+          class="transition hover:text-mint"
         >
-          GitHub
+          {{ t('contact.github') }}
         </a>
-        <a href="#" class="transition hover:text-teal-300">
-          LinkedIn
+        <a href="#" class="transition hover:text-mint">
+          {{ t('contact.linkedin') }}
         </a>
       </div>
 
-      <p class="mt-10 text-sm text-slate-500">
-        Glendale / Phoenix, AZ
+      <p class="mt-10 text-sm text-subtle">
+        {{ t('contact.location') }}
       </p>
     </div>
   </section>

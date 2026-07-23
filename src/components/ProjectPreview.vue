@@ -1,7 +1,11 @@
 <script setup lang="ts">
+import { useI18n } from 'vue-i18n'
+
 defineProps<{
   variant: 'streaming' | 'social' | 'ai'
 }>()
+
+const { t } = useI18n()
 </script>
 
 <template>
@@ -81,32 +85,68 @@ defineProps<{
       </div>
     </div>
 
-    <!-- AI assistant -->
-    <div v-else class="flex h-[168px] flex-col p-3">
-      <div class="flex-1 space-y-2 overflow-hidden">
-        <div class="flex justify-end">
-          <div class="max-w-[75%] rounded-2xl rounded-br-md bg-indigo-600/35 px-2.5 py-1.5">
-            <div class="h-1.5 w-28 rounded bg-indigo-200/40" />
-            <div class="mt-1 h-1.5 w-16 rounded bg-indigo-200/25" />
+    <!-- AI content studio -->
+    <div v-else class="flex h-[168px] flex-col">
+      <!-- Content mode strip -->
+      <div class="flex gap-1 border-b border-slate-800/80 px-2.5 py-1.5">
+        <span
+          class="rounded-md bg-indigo-500/25 px-1.5 py-0.5 text-[8px] font-medium tracking-wide text-indigo-200/90"
+        >
+          {{ t('preview.blog') }}
+        </span>
+        <span class="rounded-md bg-slate-800/80 px-1.5 py-0.5 text-[8px] text-slate-500">
+          {{ t('preview.linkedin') }}
+        </span>
+        <span class="rounded-md bg-slate-800/80 px-1.5 py-0.5 text-[8px] text-slate-500">
+          {{ t('preview.xThread') }}
+        </span>
+        <span class="rounded-md bg-slate-800/80 px-1.5 py-0.5 text-[8px] text-slate-500">
+          {{ t('preview.email') }}
+        </span>
+        <span
+          class="ml-auto rounded-full border border-teal-500/30 bg-teal-500/10 px-1.5 py-0.5 text-[7px] font-medium text-teal-300/90"
+        >
+          {{ t('preview.browserAi') }}
+        </span>
+      </div>
+      <div class="flex flex-1 flex-col p-2.5 pt-2">
+        <div class="flex-1 space-y-2 overflow-hidden">
+          <div class="flex justify-end">
+            <div class="max-w-[78%] rounded-2xl rounded-br-md bg-indigo-600/35 px-2.5 py-1.5">
+              <div class="h-1.5 w-24 rounded bg-indigo-200/40" />
+              <div class="mt-1 h-1.5 w-14 rounded bg-indigo-200/25" />
+            </div>
           </div>
-        </div>
-        <div class="flex justify-start gap-2">
-          <div class="mt-1 h-5 w-5 shrink-0 rounded-full bg-gradient-to-br from-teal-400/50 to-indigo-400/40" />
-          <div class="max-w-[80%] rounded-2xl rounded-bl-md border border-slate-700/80 bg-slate-900 px-2.5 py-1.5">
-            <div class="h-1.5 w-36 rounded bg-slate-600" />
-            <div class="mt-1 h-1.5 w-28 rounded bg-slate-700" />
-            <div class="mt-1 h-1.5 w-20 rounded bg-slate-800" />
-            <div class="mt-2 flex gap-1">
-              <span class="h-1 w-1 animate-pulse rounded-full bg-teal-400/80" />
-              <span class="h-1 w-1 animate-pulse rounded-full bg-teal-400/50 [animation-delay:150ms]" />
-              <span class="h-1 w-1 animate-pulse rounded-full bg-teal-400/30 [animation-delay:300ms]" />
+          <div class="flex justify-start gap-1.5">
+            <div
+              class="mt-0.5 h-4 w-4 shrink-0 rounded-full bg-gradient-to-br from-teal-400/50 to-indigo-400/40"
+            />
+            <div
+              class="max-w-[85%] rounded-2xl rounded-bl-md border border-slate-700/80 bg-slate-900 px-2 py-1.5"
+            >
+              <div class="h-1.5 w-32 rounded bg-slate-600" />
+              <div class="mt-1 h-1.5 w-24 rounded bg-slate-700" />
+              <div class="mt-1 h-1.5 w-16 rounded bg-slate-800" />
+              <div class="mt-1.5 flex gap-1">
+                <span class="h-1 w-1 animate-pulse rounded-full bg-teal-400/80" />
+                <span
+                  class="h-1 w-1 animate-pulse rounded-full bg-teal-400/50 [animation-delay:150ms]"
+                />
+                <span
+                  class="h-1 w-1 animate-pulse rounded-full bg-teal-400/30 [animation-delay:300ms]"
+                />
+              </div>
             </div>
           </div>
         </div>
-      </div>
-      <div class="mt-2 flex items-center gap-2 rounded-xl border border-slate-700/80 bg-slate-900/80 px-2 py-1.5">
-        <div class="h-2 flex-1 rounded bg-slate-700/80" />
-        <div class="h-6 w-6 rounded-lg bg-indigo-500/50" />
+        <div
+          class="mt-1.5 flex items-center gap-1.5 rounded-xl border border-slate-700/80 bg-slate-900/80 px-2 py-1"
+        >
+          <div class="h-3 w-3 rounded bg-slate-700/90" title="attach" />
+          <div class="h-1.5 flex-1 rounded bg-slate-700/80" />
+          <div class="h-3 w-3 rounded-full bg-slate-700/70" title="mic" />
+          <div class="h-5 w-5 rounded-md bg-indigo-500/55" />
+        </div>
       </div>
     </div>
   </div>

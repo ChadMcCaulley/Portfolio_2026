@@ -1,19 +1,21 @@
 <script setup lang="ts">
+import { computed, ref } from 'vue'
+import { useI18n } from 'vue-i18n'
 import { useScrollSpy } from '../composables/useScrollSpy'
-import { ref } from 'vue'
 
+const { t } = useI18n()
 const isMenuOpen = ref(false)
 
-const links = [
-  { id: 'about', label: 'About' },
-  { id: 'case-studies', label: 'Case Studies' },
-  { id: 'projects', label: 'Projects' },
-  { id: 'skills', label: 'Skills' },
-  { id: 'contact', label: 'Contact' },
-] as const
+const links = computed(() => [
+  { id: 'about', label: t('nav.about') },
+  { id: 'case-studies', label: t('nav.caseStudies') },
+  { id: 'projects', label: t('nav.projects') },
+  { id: 'skills', label: t('nav.skills') },
+  { id: 'contact', label: t('nav.contact') },
+])
 
 const { activeId } = useScrollSpy(
-  links.map((l) => l.id),
+  ['about', 'case-studies', 'projects', 'skills', 'contact'],
   100,
 )
 
@@ -22,19 +24,17 @@ function toggleMenu() {
 }
 
 function linkClass(id: string) {
-  return activeId.value === id
-    ? 'text-teal-300'
-    : 'text-slate-400 hover:text-slate-200'
+  return activeId.value === id ? 'nav-link-active' : 'nav-link'
 }
 </script>
 
 <template>
   <nav
-    class="fixed top-0 right-0 left-0 z-50 border-b border-slate-800/80 bg-slate-950/80 backdrop-blur-md"
+    class="app-nav fixed top-0 right-0 left-0 z-50 border-b backdrop-blur-md"
   >
     <div class="mx-auto max-w-6xl px-4 sm:px-6 lg:px-8">
       <div class="flex h-16 items-center justify-between">
-        <a href="#" class="font-display text-lg font-medium tracking-tight text-white">
+        <a href="#" class="font-display text-lg font-medium tracking-tight text-heading">
           Chad McCaulley
         </a>
 
@@ -50,16 +50,16 @@ function linkClass(id: string) {
           </a>
           <a
             href="#"
-            class="rounded-md bg-indigo-600 px-3 py-1.5 text-sm font-medium text-white transition hover:bg-indigo-500"
+            class="btn-primary rounded-md px-3 py-1.5 text-sm font-medium transition"
           >
-            Resume
+            {{ t('nav.resume') }}
           </a>
         </div>
 
         <button
           type="button"
-          class="p-2 text-slate-300 md:hidden"
-          aria-label="Toggle menu"
+          class="p-2 text-muted md:hidden"
+          :aria-label="t('nav.toggleMenu')"
           @click="toggleMenu"
         >
           <svg class="h-6 w-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
@@ -74,8 +74,8 @@ function linkClass(id: string) {
       </div>
     </div>
 
-    <div v-if="isMenuOpen" class="border-t border-slate-800 bg-slate-950/95 md:hidden">
-      <div class="space-y-1 px-4 py-4 text-slate-300">
+    <div v-if="isMenuOpen" class="app-nav-mobile border-t md:hidden">
+      <div class="space-y-1 px-4 py-4">
         <a
           v-for="link in links"
           :key="link.id"
@@ -86,7 +86,9 @@ function linkClass(id: string) {
         >
           {{ link.label }}
         </a>
-        <a href="#" class="block px-2 py-2" @click="isMenuOpen = false">Resume</a>
+        <a href="#" class="block px-2 py-2 text-muted" @click="isMenuOpen = false">
+          {{ t('nav.resume') }}
+        </a>
       </div>
     </div>
   </nav>
