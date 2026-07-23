@@ -312,6 +312,275 @@ body {
   );
 }
 
+.contact-field {
+  min-width: 0;
+}
+
+.contact-control {
+  position: relative;
+}
+
+.contact-input {
+  width: 100%;
+  border-radius: 0.875rem;
+  border: 1px solid var(--app-border);
+  background-color: color-mix(in srgb, var(--app-bg-elevated) 70%, var(--app-bg));
+  color: var(--app-heading);
+  padding: 0.8rem 1rem;
+  font-size: 0.9375rem;
+  line-height: 1.45;
+  outline: none;
+  transition:
+    border-color 0.18s ease,
+    box-shadow 0.18s ease,
+    background-color 0.18s ease,
+    color 0.18s ease;
+}
+
+.contact-input--with-icon {
+  padding-right: 2.5rem;
+}
+
+.contact-input--textarea {
+  min-height: 7.5rem;
+  resize: vertical;
+  padding-top: 0.85rem;
+  padding-bottom: 0.85rem;
+}
+
+.contact-input::placeholder {
+  color: var(--app-subtle);
+}
+
+.contact-input:hover:not(:disabled):not(.contact-input--error):not(.contact-input--valid) {
+  border-color: var(--app-border-strong);
+}
+
+.contact-input:focus {
+  border-color: color-mix(in srgb, var(--app-accent) 50%, transparent);
+  box-shadow: 0 0 0 3px var(--app-indigo-soft);
+  background-color: var(--app-bg-elevated);
+}
+
+.contact-input:disabled {
+  opacity: 0.65;
+  cursor: not-allowed;
+}
+
+/* Error state */
+.contact-input--error {
+  border-color: color-mix(in srgb, #f43f5e 70%, transparent);
+  background-color: color-mix(in srgb, #f43f5e 7%, var(--app-bg));
+  box-shadow: 0 0 0 3px color-mix(in srgb, #f43f5e 12%, transparent);
+}
+
+.contact-input--error:focus {
+  border-color: #f43f5e;
+  box-shadow: 0 0 0 3px color-mix(in srgb, #f43f5e 18%, transparent);
+  background-color: color-mix(in srgb, #f43f5e 5%, var(--app-bg-elevated));
+}
+
+/* Valid state */
+.contact-input--valid {
+  border-color: color-mix(in srgb, #14b8a6 65%, transparent);
+  background-color: color-mix(in srgb, #14b8a6 6%, var(--app-bg));
+}
+
+.contact-input--valid:focus {
+  border-color: #14b8a6;
+  box-shadow: 0 0 0 3px color-mix(in srgb, #14b8a6 16%, transparent);
+  background-color: color-mix(in srgb, #14b8a6 4%, var(--app-bg-elevated));
+}
+
+.contact-status-icon {
+  position: absolute;
+  top: 50%;
+  right: 0.85rem;
+  display: flex;
+  transform: translateY(-50%);
+  pointer-events: none;
+}
+
+.contact-status-icon--textarea {
+  top: 0.95rem;
+  transform: none;
+}
+
+.contact-status-icon--error {
+  color: #f43f5e;
+}
+
+.contact-status-icon--valid {
+  color: #14b8a6;
+}
+
+.contact-meta {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  gap: 0.75rem;
+  margin-top: 0.45rem;
+  min-height: 1.25rem;
+}
+
+.contact-feedback {
+  margin: 0.45rem 0 0;
+  font-size: 0.75rem;
+  line-height: 1.35;
+}
+
+.contact-meta .contact-feedback {
+  margin-top: 0;
+  flex: 1;
+  text-align: left;
+}
+
+.contact-feedback--error {
+  color: #e11d48;
+}
+
+html[data-theme="dark"] .contact-feedback--error {
+  color: #fb7185;
+}
+
+.contact-feedback--hint {
+  color: var(--app-subtle);
+}
+
+.contact-feedback--hint-ready {
+  color: #0d9488;
+}
+
+html[data-theme="dark"] .contact-feedback--hint-ready {
+  color: #5eead4;
+}
+
+.contact-feedback--hint-limit {
+  color: #d97706;
+}
+
+html[data-theme="dark"] .contact-feedback--hint-limit {
+  color: #fbbf24;
+}
+
+.contact-counter {
+  flex-shrink: 0;
+  font-size: 0.7rem;
+  font-variant-numeric: tabular-nums;
+  color: var(--app-subtle);
+  line-height: 1.35;
+}
+
+.contact-counter--low {
+  color: #e11d48;
+}
+
+html[data-theme="dark"] .contact-counter--low {
+  color: #fb7185;
+}
+
+.contact-counter--ok {
+  color: #0d9488;
+}
+
+html[data-theme="dark"] .contact-counter--ok {
+  color: #5eead4;
+}
+
+.contact-counter--warn {
+  color: #d97706;
+}
+
+html[data-theme="dark"] .contact-counter--warn {
+  color: #fbbf24;
+}
+
+.contact-counter--limit {
+  color: #e11d48;
+  font-weight: 600;
+}
+
+html[data-theme="dark"] .contact-counter--limit {
+  color: #fb7185;
+}
+
+.contact-banner {
+  border-radius: 0.75rem;
+  padding: 0.7rem 0.9rem;
+  font-size: 0.875rem;
+  line-height: 1.4;
+  text-align: left;
+}
+
+.contact-banner--error {
+  border: 1px solid color-mix(in srgb, #f43f5e 35%, transparent);
+  background-color: color-mix(in srgb, #f43f5e 10%, var(--app-bg));
+  color: #e11d48;
+}
+
+html[data-theme="dark"] .contact-banner--error {
+  color: #fda4af;
+}
+
+/* Feedback enter/leave */
+.contact-feedback-enter-active,
+.contact-feedback-leave-active {
+  transition:
+    opacity 0.16s ease,
+    transform 0.16s ease;
+}
+
+.contact-feedback-enter-from,
+.contact-feedback-leave-to {
+  opacity: 0;
+  transform: translateY(-3px);
+}
+
+/* Gentle shake when submit fails validation */
+.contact-form--shake {
+  animation: contact-shake 0.42s cubic-bezier(0.36, 0.07, 0.19, 0.97);
+}
+
+@keyframes contact-shake {
+  10%,
+  90% {
+    transform: translateX(-1px);
+  }
+  20%,
+  80% {
+    transform: translateX(2px);
+  }
+  30%,
+  50%,
+  70% {
+    transform: translateX(-3px);
+  }
+  40%,
+  60% {
+    transform: translateX(3px);
+  }
+}
+
+html[data-reduced-motion="true"] .contact-form--shake,
+html[data-reduced-motion="true"] .contact-feedback-enter-active,
+html[data-reduced-motion="true"] .contact-feedback-leave-active {
+  animation: none;
+  transition: none;
+}
+
+/* Screen-reader only labels keep the form clean visually */
+.sr-only {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  white-space: nowrap;
+  border-width: 0;
+}
+
 /* Card open / hover accents */
 .card-open {
   border-color: color-mix(in srgb, var(--app-accent) 55%, transparent) !important;
